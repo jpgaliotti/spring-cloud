@@ -1,4 +1,4 @@
-package com.example.lab4subject.controller;
+package com.example.lab4article.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Random;
 
 @RestController
-public class SubjectGen {
+public class ArticleController {
 
     private final Random random = new Random();
 
