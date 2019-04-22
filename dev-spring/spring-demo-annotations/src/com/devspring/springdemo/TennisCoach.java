@@ -1,5 +1,8 @@
 package com.devspring.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -17,13 +20,23 @@ public class TennisCoach implements Coach {
 		System.out.println(">> TennisCoach: Inside default constructor");
 	}
 	
+	// define my init method
+	@PostConstruct
+	public void doMyStartupStuff() {
+		System.out.println(">> TennisCoach: Inside of doMyStartupStuff() method");
+	}
+	
+	// define my destroy method
+	@PreDestroy
+	public void doMyCleanupStuff() {
+		System.out.println(">> TennisCoach: Inside of doMyCleanupStuff() method");
+	}
 	
 	// setter/method injection
 	/* 
 	// define a setter method for injection
 	@Autowired
 	public void setFortuneService(FortuneService theFortuneService) {
-		System.out.println(">> TennisCoach: Inside setFortuneService() method");
 		fortuneService=theFortuneService;
 	}
 	*/
@@ -40,9 +53,6 @@ public class TennisCoach implements Coach {
 	/*
 	@Autowired
     public TennisCoach(@Qualifier("randomFortuneService") FortuneService theFortuneService) {
-
-        System.out.println(">> TennisCoach: inside constructor using @autowired and @qualifier");
-        
         fortuneService = theFortuneService;
     }
 	*/
